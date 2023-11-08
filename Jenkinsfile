@@ -35,16 +35,16 @@ stage('Push Image to dockerHub') {
 } }
 }
 
-stage('Stage 5: Clean docker images') {
-  steps {
-    script {
-    sh 'docker stop calc'
-    sh 'docker rm calc'
-    sh 'docker container prune −f'
-    sh 'docker image prune −f'
-    }
-  }
- }
+// stage('Stage 5: Clean docker images') {
+//   steps {
+//     script {
+//     sh 'docker stop calc'
+//     sh 'docker rm calc'
+//     sh 'docker container prune −f'
+//     sh 'docker image prune −f'
+//     }
+//   }
+//  }
 
 // stage('Step 6: Ansible Deployment') {
 //   steps {
