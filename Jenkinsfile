@@ -6,26 +6,25 @@ pipeline{
     dockerimage = ''
 }
 stages{
-
-stage('Git Pull') {
+stage('Stage 1: Git Pull') {
   steps {
       git url: 'https://github.com/unbalancedvariance/SPE_Mini_Project.git',
       branch: 'main',
       credentialsId: ''
 } }
-stage('Build') {
+stage('Stage 2:Build') {
   steps {
       sh 'mvn clean install'
 } }
 
-stage('Build Docker Image') {
+stage('Stage 3:Build Docker Image') {
   steps {
     script{
        dockerimage = docker.build "unbalancedvariance/calc:latest"
 } }
 }
 
-stage('Push Image to dockerHub') {
+stage('Stage 4:Push Image to dockerHub') {
     steps {
       script{
         docker.withRegistry('','DockerCred'){
@@ -51,20 +50,20 @@ stage('Stage 5: Clean docker images') {
   }
  }
 
-// stage('Step 6: Ansible Deployment') {
-//   steps {
-//     ansiblePlaybook(
-//     becomeUser: null,
-//     colorized: true,
-//     credentialsId: 'localhost',
-//     disableHostKeyChecking: true,
-//     installation: 'Ansible',
-//     inventory: 'Deployment/inventory',
-//     playbook: 'Deployment/deploy.yml',
-//     sudoUser: null
-//     )
-//   }
-// }
+stage('Step 7: Ansible Deployment') {
+  steps {
+    ansiblePlaybook(
+    becomeUser: null,
+    colorized: true,
+    credentialsId: 'localhost',
+    disableHostKeyChecking: true,
+    installation: 'Ansible',
+    inventory: 'Deployment/inventory',
+    playbook: 'Deployment/deploy.yml',
+    sudoUser: null
+    )
+  }
+}
 
 }
 }
