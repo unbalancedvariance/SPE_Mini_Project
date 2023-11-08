@@ -23,14 +23,16 @@ stage('Build Docker Image') {
     script{
        dockerimage = docker.build "unbalancedvariance/calc:latest"
 } }
++
 
 
 }
 stage('Push Image to dockerHub') {
     steps {
       script{
-        docker.withRegistry('','DockerCred')
+        docker.withRegistry('','DockerCred'){
         dockerimage.push()
+        }
 } }
 }
 
