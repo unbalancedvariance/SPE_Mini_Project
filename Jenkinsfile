@@ -23,10 +23,8 @@ stage('Build Docker Image') {
     script{
        dockerimage = docker.build "unbalancedvariance/calc:latest"
 } }
-+
-
-
 }
+
 stage('Push Image to dockerHub') {
     steps {
       script{
