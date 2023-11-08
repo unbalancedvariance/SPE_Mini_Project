@@ -3,7 +3,6 @@ pipeline{
 
   environment {
     CI = 'true'
-    registry = 'unbalancedvariance/calc'
     dockerimage = ''
 }
 stages{
@@ -12,7 +11,6 @@ stage('Git Pull') {
   steps {
       git url: 'https://github.com/unbalancedvariance/SPE_Mini_Project.git',
       branch: 'main',
-      credentialsId: ''
 } }
 stage('Build') {
   steps {
