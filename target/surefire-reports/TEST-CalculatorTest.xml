@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="8" failures="0" name="CalculatorTest" time="0.705" errors="0" skipped="0">
+<testsuite tests="8" failures="0" name="CalculatorTest" time="0.012" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="17.0.9+9-Debian-1deb12u1"/>
@@ -57,12 +57,12 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.stdout.encoding" value="UTF-8"/>
   </properties>
-  <testcase classname="CalculatorTest" name="test_add_negative" time="0.705"/>
+  <testcase classname="CalculatorTest" name="test_add_negative" time="0.012"/>
   <testcase classname="CalculatorTest" name="test_div_positive" time="0"/>
   <testcase classname="CalculatorTest" name="test_div_negative" time="0"/>
+  <testcase classname="CalculatorTest" name="test_sub_positive" time="0"/>
   <testcase classname="CalculatorTest" name="test_sub_negative" time="0"/>
   <testcase classname="CalculatorTest" name="test_mul_positive" time="0"/>
   <testcase classname="CalculatorTest" name="test_mul_negative" time="0"/>
   <testcase classname="CalculatorTest" name="test_add_positive" time="0"/>
-  <testcase classname="CalculatorTest" name="test_sub_positiive" time="0"/>
 </testsuite>

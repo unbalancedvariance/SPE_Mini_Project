@@ -1,88 +1,86 @@
 package org.example;
-import java.util.*;
-import org.apache.logging.log4j.*;
+// import org.apache.logging.log4j.LogManager;
+// import org.apache.logging.log4j.Logger;
+import java.util.Scanner;
+
 
 public class Main {
-    private static final Logger logger = LogManager.getLogger(Main.class);
+    // private static final Logger logger = LogManager.getLogger(Main.class);
+    public static int add(int a, int b){
+        return a + b;
+    } 
 
-    public static double add(double a,double b)
-    {
-        double res = a+b;
-        return res;
-    }
+    public static int subtract(int a, int b){
+        return a - b;
+    } 
 
-    public static double sub(double a,double b)
-    {
-        double res = a-b;
-        return res;
-    }
+    public static int multiply(int a, int b){
+        return a * b;
+    } 
 
-    public static double mul(double a,double b)
-    {
-        double res = a*b;
-        return res;
-    }
-    
-    public static double div(double a,double b)
-    {
-        double res = a/b;
-        return res;
-    }
+    public static int divide(int a, int b){
+        return a / b;
+    } 
+
 
     public static void main(String[] args) {
-        Scanner myObj = new Scanner(System.in);
-        System.out.println("Welcome to Calculator...");
-        logger.info("Start of Execution");
-        while(true)
-        {
-        System.out.println("Choose your operations");
-        System.out.println("1. Addition");
-        System.out.println("2. Subtraction");
-        System.out.println("3. Multiplication");
-        System.out.println("4. Division");
-        System.out.println("5. Exit");
-        int type = myObj.nextInt();
-        if(type == 5) 
-        {
-            logger.info("End of Execution");   
-            break;
-        }
-        System.out.println("Enter the 1st operand");
-        double a = myObj.nextDouble();
-        System.out.println("Enter the 2nd operand");
-        double b = myObj.nextDouble();
-        double res = 0.0;
-        if(type == 1)
-        {
-            // ngrok
-            logger.info("Start OP: Addition");
-            res = add(a,b);
-            logger.info("End OP: Addition");
-        }    
-        if(type == 2)
-        {
-            logger.info("Start OP: Subtraction");
-            res = sub(a,b);
-            logger.info("End OP: Subtraction");
-        }
-        if(type == 3)
-        {
-            logger.info("Start OP: Multiplication");
-            res = mul(a,b);
-            logger.info("End OP: Multiplication");
-        }
-        if(type == 4)
-        {
-            logger.info("Start OP: Division");
-            res = div(a,b);
-            logger.info("End OP: Addition");
-        }
-        else
-        {
-            logger.warn("Invalid Input");
-        }
 
-        System.out.println("result = " + res);
-    }
+        while (true){ 
+            System.out.println("\n-------Welcome to Calculator------\n");
+            System.out.println("Choose Your Operation");
+            System.out.println("1. Addition");
+            System.out.println("2. Subtraction");
+            System.out.println("3. Multiplication");
+            System.out.println("4. Division");
+            System.out.println("5. Exit");
+
+            Scanner sc = new Scanner(System.in);
+            int choice = sc.nextInt();
+            
+            // take input
+            if (choice == 1){
+                System.out.println("Enter First Number: ");
+                int a = sc.nextInt();
+    
+                System.out.println("Enter Second Number: ");
+                int b = sc.nextInt();
+
+                System.out.println("Result: " + a + "+" + b + " = " + add(a, b));
+            }
+            else if (choice == 2){
+                System.out.println("Enter First Number: ");
+                int a = sc.nextInt();
+    
+                System.out.println("Enter Second Number: ");
+                int b = sc.nextInt();
+
+                System.out.println("Result: " + a + "-" + b + " = " +  subtract(a, b));
+            }
+            else if (choice == 3){
+                System.out.println("Enter First Number: ");
+                int a = sc.nextInt();
+    
+                System.out.println("Enter Second Number: ");
+                int b = sc.nextInt();
+
+                System.out.println("Result: " + a + "*" + b + " = " + multiply(a, b));
+            }  
+            else if (choice == 4){
+                System.out.println("Enter First Number: ");
+                int a = sc.nextInt();
+    
+                System.out.println("Enter Second Number: ");
+                int b = sc.nextInt();
+
+                System.out.println("Result: " + a + "/" + b + " = " + divide(a, b));
+            }
+            else if (choice == 5){
+                System.out.println("Thanks for using this calculator!");
+                break;
+            }
+            else{
+                System.out.println("Invalid Input! Please try again.");
+            }
+        }
     }
 }

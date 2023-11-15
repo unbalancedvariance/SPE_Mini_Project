@@ -4,84 +4,95 @@ import org.junit.Before;
 import org.junit.Test;
 
 
-public class CalculatorTest {
+public class CalculatorTest{
+
     private Main calculator;
 
     @Before
-    public void setup()
-    {
-        calculator = new Main();
-    }
+    public void setUp() {calculator = new Main();}
+
+    // Addition
 
     @Test
-    public void test_add_positive()
-    {
-        double a = 1;
-        double b = 2;
-        double expectedResult = 3;
-        Assert.assertEquals(expectedResult, calculator.add(a, b), 0.001);
-    }
-    
-    @Test
-    public void test_add_negative()
-    {
-        double a = 1;
-        double b = 2;
-        double expectedResult = 0;
-        Assert.assertNotEquals(expectedResult, calculator.add(a, b), 0.001);
+    public void test_add_positive(){
+        int a = 1;
+        int b = 2;
+
+        int expectedResult = 3;
+        Assert.assertEquals(expectedResult, calculator.add(a, b));
     }
 
-    @Test
-    public void test_sub_positiive()
-    {
-        double a = 1;
-        double b = 2;
-        double expectedResult = -1;
-        Assert.assertEquals(expectedResult, calculator.sub(a, b), 0.001);
+   @Test
+    public void test_add_negative(){
+        int a = 1;
+        int b = 2;
+
+        int expectedResult = 5;
+        Assert.assertNotEquals(expectedResult, calculator.add(a, b));
     }
 
-    @Test
-    public void test_sub_negative()
-    {
-        double a = 1;
-        double b = 2;
-        double expectedResult = 0;
-        Assert.assertNotEquals(expectedResult, calculator.sub(a, b), 0.001);
-    }
+
+    // Subtraction
 
     @Test
-    public void test_mul_positive()
-    {
-        double a = 1;
-        double b = 2;
-        double expectedResult = 2;
-        Assert.assertEquals(expectedResult, calculator.mul(a, b), 0.001);
+    public void test_sub_positive(){
+        int a = 5;
+        int b = 2;
+
+        int expectedResult = 3;
+        Assert.assertEquals(expectedResult, calculator.subtract(a, b));
     }
 
-    @Test
-    public void test_mul_negative()
-    {
-        double a = 1;
-        double b = 2;
-        double expectedResult = 0;
-        Assert.assertNotEquals(expectedResult, calculator.mul(a, b), 0.001);
+   @Test
+    public void test_sub_negative(){
+        int a = 5;
+        int b = 2;
+
+        int expectedResult = 0;
+        Assert.assertNotEquals(expectedResult, calculator.subtract(a, b));
     }
 
-    @Test
-    public void test_div_positive()
-    {
-        double a = 16;
-        double b = 2;
-        double expectedResult = 8;
-        Assert.assertEquals(expectedResult, calculator.div(a, b), 0.001);
-    }
+
+
+    // Multiplication
 
     @Test
-    public void test_div_negative()
-    {
-        double a = 16;
-        double b = 2;
-        double expectedResult = 0;
-        Assert.assertNotEquals(expectedResult, calculator.div(a, b), 0.001);
+    public void test_mul_positive(){
+        int a = 5;
+        int b = 2;
+
+        int expectedResult = 10;
+        Assert.assertEquals(expectedResult, calculator.multiply(a, b));
     }
+
+   @Test
+    public void test_mul_negative(){
+        int a = 5;
+        int b = 2;
+
+        int expectedResult = 5;
+        Assert.assertNotEquals(expectedResult, calculator.multiply(a, b));
+    }
+
+
+    // Division
+
+    @Test
+    public void test_div_positive(){
+        int a = 6;
+        int b = 2;
+
+        int expectedResult = 3;
+        Assert.assertEquals(expectedResult, calculator.divide(a, b));
+    }
+
+   @Test
+    public void test_div_negative(){
+        int a = 5;
+        int b = 2;
+
+        int expectedResult = 4;
+        Assert.assertNotEquals(expectedResult, calculator.divide(a, b));
+    }
+
 }
